@@ -1,9 +1,42 @@
-﻿using System;
+using System;
 
 
-namespace KlassDiagram
-{
-    internal class Class1
-    {
-    }
-}
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			// Skapar inmatning för ett nytt konto
+		Console.WriteLine("Skriv in ditt Namn som ägare för kontot:");
+		string Owner = Console.ReadLine();
+
+		Console.WriteLine("Skriv in ditt nuvarande Saldo:");
+        double Saldo = double.Parse(Console.ReadLine());
+
+		Console.WriteLine("Skriv in ditt kontonummer: ");
+		int Account = int.Parse(Console.ReadLine());
+
+		Bankkonto konto = new Bankkonto(Owner, Saldo);
+
+			// Sätt in pengar
+		Console.WriteLine("Ange hur mycket du vill sätta in: ");
+		double deposit = double.Parse(Console.ReadLine());
+		konto.CashIn(deposit);
+
+		// Ta ut pengar
+		Console.WriteLine("Ange hur mycket pengar du vill ta ut: ");
+		double insert = double.Parse(Console.ReadLine());
+		konto.CashOut(insert);
+
+		// Månadsspara och välja Aktie
+		Console.WriteLine("Ange hur mycket du vill månadsspara: ");
+		double Saves = double.Parse(Console.ReadLine());
+		Console.WriteLine("Ange i vilken Aktie du vill spara: ");
+		string Stocks = Console.ReadLine();
+		konto.MontlySavingsAndStock(Saves, Stocks);
+
+		konto.PrintInfo();
+
+		}
+	}
+
+
